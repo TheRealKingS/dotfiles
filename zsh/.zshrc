@@ -24,7 +24,7 @@ setopt NO_BEEP
 MAILCHECK=0
 # autoload -U colors
 #colors
-source /home/kings/antigen.zsh
+source ~/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
