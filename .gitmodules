@@ -1,0 +1,15 @@
+[submodule "nvim/.config/nvim/plugged/ctrlp.vim"]
+	path = nvim/.config/nvim/plugged/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim
+[submodule "nvim/.config/nvim/plugged/gruvbox"]
+	path = nvim/.config/nvim/plugged/gruvbox
+	url = https://github.com/morhetz/gruvbox/
+[submodule "nvim/.config/nvim/plugged/vim-fugitive"]
+	path = nvim/.config/nvim/plugged/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "nvim/.config/nvim/plugged/nerdtree"]
+	path = nvim/.config/nvim/plugged/nerdtree
+	url = https://github.com/preservim/nerdtree
+[submodule "nvim/.config/nvim/plugged/vim-go"]
+	path = nvim/.config/nvim/plugged/vim-go
+	url = https://github.com/fatih/vim-go
