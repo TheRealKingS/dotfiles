@@ -46,4 +46,7 @@ unset SSH_AGENT_PID
         export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
+alias vim='nvim'
+export EDITOR='nvim'
+
 export PATH=$PATH:/home/kings/.local/bin

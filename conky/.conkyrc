@@ -1,85 +1,102 @@
 conky.config = {
-	use_xft= true,
-	xftalpha= .1,
-	update_interval= 1,
-	total_run_times= 0,
-
-	background= true,
-
-	own_window= true,
-	own_window_type= 'desktop',
-	own_window_transparent= true,
-	own_window_hints= 'undecorated,below,sticky,skip_taskbar,skip_pager',
-	own_window_colour= '000000',
-	own_window_argb_visual= true,
-	own_window_argb_value= 0,
-
-	double_buffer= true,
-
-	minimum_width= 270,
-	maximum_width= 270,
-
-	minimum_height= 10,
-
-	draw_shades= false,
-	draw_outline= false,
-	draw_borders= false,
-	draw_graph_borders= false,
-	
-	default_color= 'FFFFFF',
-	default_shade_color= '333333',
-	default_outline_color= 'black',
-	color1 = 'A9A9A9',
-	color3 = '616161',
-
-	alignment= 'top_right',
-	gap_x= 56,
-	gap_y= 0,
-	no_buffers= true,
-	text_buffer_size = 2048,
-	uppercase= false,
-	cpu_avg_samples= 4,
-	net_avg_samples = 2,
-	override_utf8_locale= true,
-
-	font= 'Ubuntu:style=medium:size=9'
+    alignment = 'top_left',
+    use_xft = true,
+    xftalpha = 0.8,
+    font = 'Noto:normal:size=8',
+    text_buffer_size = 2048,
+    update_interval = 1.0,
+    total_run_times = 0,
+    background = true,
+    double_buffer = true,
+    no_buffers = true,
+    imlib_cache_size = 0,
+    cpu_avg_samples = 2,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_argb_visual = true,
+    own_window_argb_value = 50,
+    own_window_transparent = true,
+    own_window_type = 'normal',
+    own_window_hints = 'undecorated,below,skip_taskbar,sticky,skip_pager',
+    own_window_colour = '000000',
+    draw_shades = no,
+    default_shade_color = '000000',
+    draw_outline = no,
+    default_outline_color = '000000',
+    draw_borders = no,
+    gap_x = 10,
+    gap_y = 10,
+    minimum_height = 5,
+    minimum_width = 205,
+    draw_graph_borders = true,
+    show_graph_scale = no,
+    show_graph_range = no,
+    short_units = yes,
+    override_utf8_locale = yes,
+    uppercase = no,
+    default_color = 'ffffff',
+    color1 = 'c6396b',
+    color2 = 'fc8c3b',
+    color3 = 'f9e30f',
+    color4 = '4291e2',
+    color5 = '161925',
+    color6 = '3bf4bb',
+    use_spacer = none,
+    hddtemp_host = "127.0.0.1",
+    hddtemp_port = "7634",
 }
 
 conky.text = [[
-
-${color1}
-${voffset 50}
-${alignr}${font Ubuntu:style=Medium:pixelsize=50}${time %H:%M}${font}
-${voffset 5}
-${alignr}${font Ubuntu:style=Medium:pixelsize=13}${time %A %d %B %Y}${font}
-
-
-${voffset 250}
-${font Font Awesome 5 Free:style=Solid:size=10}${font} ${alignr}${if_match "${addr enp3s0}"!="No Address"} [FILAIRE] ${addr enp3s0}${endif}${if_match "${addr wlp4s7}"!="No Address"}[WIFI] ${addr wlp4s7}${endif}
-${hr}
-${font Font Awesome 5 Free:style=Solid:size=10}${font} ${alignr}${exec curl ipinfo.io/ip}
-
-
-${font Font Awesome 5 Free:style=Solid:size=10}${font}   disques ${alignr}${hddtemp /dev/sda}°.${hddtemp /dev/sdb}°.${hddtemp /dev/sdc}°
-# .${hddtemp /dev/sdd}°.${hddtemp /dev/sde}°.${hddtemp /dev/sdf}°.
-${hr}
-${font Font Awesome 5 Free:style=Solid:size=10}${font}   cpu ${alignr}${hwmon 0 temp 1}°.${hwmon 0 temp 2}°.${hwmon 0 temp 3}°
-${font Font Awesome 5 Free:style=Solid:size=10}${font}   ventilo ${alignr}${hwmon 0 fan 1} tour/min
-${color3}${cpugraph cpu1 50,133 5e7b7b d8deeb -t} ${cpugraph cpu2 50,133 5e7b7b d8deeb -t}
-${cpugraph cpu3 50,133 5e7b7b d8deeb -t} ${cpugraph cpu4 50,133 5e7b7b d8deeb -t}
-
-${if_match "${addr enp3s0}"!="No Address"}
-${color3}${downspeedgraph enp3s0 50,269 5e7b7b d8deeb}
-${color1}${font Font Awesome 5 Free:style=Solid:size=10}${font}   download ${alignr}${downspeedf enp3s0}k/s (${totaldown enp3s0})
-${hr}
-${font Font Awesome 5 Free:style=Solid:size=10}${font}   upload ${alignr}${upspeedf enp3s0}k/s (${totalup enp3s0})
-${color3}${upspeedgraph enp3s0 50,269 99c8e8 618094}
-${endif}
-${if_match "${addr wlp4s7}"!="No Address"}
-${color3}${downspeedgraph wlp4s7 50,269 5e7b7b d8deeb}
-${color1}${font Font Awesome 5 Free:style=Solid:size=10}${font}   download ${alignr}${downspeedf wlp4s7}k/s (${totaldown wlp4s7})
-${hr}
-${font Font Awesome 5 Free:style=Solid:size=10}${font}   upload ${alignr}${upspeedf wlp4s7}k/s (${totalup wlp4s7})
-${color3}${upspeedgraph wlp4s7 50,269 99c8e8 618094}
-${endif}
+#Title
+${goto 10}${font Noto:bold:size=12}kings Desktop ${alignr 10}${color2}${time %R} Uhr
+${font Noto:bold:size=9}${color4}${hr}${color}
+# day/time
+${font Noto:normal:size=9}${goto 10}Date:${color2}${alignr 10}${time %d.%m.%Y}${color}
+${goto 10}Host:${color2}${alignr 10}${exec hostname}
+${goto 10}${color}Kernel:${alignr 10}${color2}${kernel}${color}
+${goto 10}Uptime:${color2}${alignr 10}$uptime
+#
+#Processor section
+${color4}${hr}${color}
+${alignc}${color6}${font Noto:normal:size=9}${exec cat /proc/cpuinfo|grep 'model name'|sed -e 's/model name.*: //'| uniq | cut -c 18-30}${color} @ ${color6}${freq_g 1}GHz
+${font}${alignc}${color}Active Governor: ${color6}${execi 1 cut -b 1-20 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor}${color}
+${goto 10}${color}Current Vcore: ${color6}${execi 1 sensors | grep 'Vcore' | cut -c 27-35} ${alignr 10}${color}Max Vcore: ${color1}${execi 1 sensors | grep 'Vcore' | cut -c 61-67
+}
+#
+#Cores
+${font Noto:normal:size=8}${goto 10}${color}C1: ${color2}${cpu cpu1}%${goto 80}${color1}${exec sensors|grep 'Core 0'|awk '{print $3}'}${color}${goto 140}C2: ${color2}${cpu cpu2}%${color1}${alignr 10}${exec sensors|grep 'Core 1'|awk '{print $3}'}
+${goto 10}${color5}${cpugraph cpu1 20,110 fc8c3b c6396b -t} ${alignr 10}${color5}${cpugraph cpu2 20,110 fc8c3b c6396b -t}
+${color}${goto 10}C3: ${color2}${cpu cpu3}%${goto 80}${color1}${exec sensors|grep 'Core 2'|awk '{print $3}'}${color}${goto 140}C4: ${color2}${cpu cpu4}%${alignr 10}${color1}${exec sensors|grep 'Core 3'|awk '{print $3}'}
+${goto 10}${color5}${cpugraph cpu3 20,110 fc8c3b c6396b -t} ${alignr 10}${color5}${cpugraph cpu4 20,110 fc8c3b c6396b -t}
+#
+# top processes
+${color}${goto 10}Current Avg CPU Load: ${alignr 10}${color6}${cpu cpu0}%
+${color1}${goto 10}${top name 1}${alignr 10}${color}${top cpu 1}%
+${color1}${goto 10}${top name 2}${alignr 10}${color}${top cpu 2}%
+${color1}${goto 10}${top name 3}${alignr 10}${color}${top cpu 3}%
+#
+#
+# top memory
+${color4}${hr}${color}
+${goto 10}${color}Current RAM Usage: ${alignr 10}${color6}${memperc}%
+${goto 15}${color5}${memgraph 20,220 fc8c3b c6396b -t}
+${goto 10}${color1}${top_mem name 1}${alignr 10}${color}${top mem 1}%
+${color1}${goto 10}${top_mem name 2}${alignr 10}${color}${top mem 2}%
+${color1}${goto 10}${top_mem name 3}${alignr 10}${color}${top mem 3}%
+#
+#network
+${color4}${hr}${color}
+${color}${font}${goto 10}Internal IP: ${color6}${alignr 10}${addr wlo1}
+${goto 10}Network${alignr 10 10}SSID: ${wireless_essid wlo1}
+${goto 10}Signal:${goto 70}${color}${wireless_link_bar wlo1}${color}${alignr 10 10}${wireless_link_qual_perc wlo1}%
+#${font}${goto 10}External: ${font Noto:bold:9}${alignr 10 10}${exec curl ipinfo.io/ip}
+${font}${goto 10}${color}Up Spd:   ${color2}${upspeed wlo1}${goto 140}${color}Down Spd: ${alignr 10}${color2}${downspeed wlo1}
+${color}${goto 10}Total Up: ${color2}${totalup wlo1}${goto 140}${color}Total Dn: ${alignr 10}${color2}${totaldown wlo1}
+${goto 15}${color5}${upspeedgraph wlo1 20,110 fc8c3b c6396b -t}   ${color5}${downspeedgraph wlo1 20,110 fc8c3b c6396b -t}
+#
+#Storage
+${color4}${hr}${color}
+${goto 10}${color}Sys:      ${alignr 10}${color6}${fs_used /}${color}  /  ${color2}${alignr 10}${fs_size /}
+#
+${goto 10}${color}Home:      ${alignr 10}${color6}${fs_used /home}${color}  /  ${color2}${alignr 10}${fs_size /home}
 ]]
